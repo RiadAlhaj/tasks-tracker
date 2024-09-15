@@ -7,6 +7,7 @@ Add Task: Users can add new tasks to the list.
 Delete Task: Users can delete a task from the list.
 Complete Task: Users can mark a task as completed, and it will be moved to the completed tasks section.
 Show/Hide Completed Tasks: Users can toggle the visibility of completed tasks.
+To Run This Project : cd "to- do- app"   npm run dev
 
 
 
