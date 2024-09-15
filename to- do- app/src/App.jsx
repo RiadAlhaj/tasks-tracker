@@ -5,6 +5,8 @@ import './App.css'
 function toDoList(){
   const [tasks,setTasks]= useState ([]);
   const [newTask,setNewTask]=useState("");
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const [showCompleted, setShowCompleted] = useState(false);
 
   function handleInputChange(event){
     setNewTask(event.target.value);
@@ -21,23 +23,16 @@ function toDoList(){
     const updatedTask=tasks.filter((_, i)=> i !== index);
     setTasks(updatedTask);
   }
-  
-  function moveTaskUp(index){
-    if(index > 0 ){
-      const updatedTasks =[...tasks];
-      [updatedTasks[index],updatedTasks[index-1]]=
-      [updatedTasks[index-1],updatedTasks[index]];
-      setTasks(updatedTasks);
-    }
-  }
 
-  function moveTaskDown(index){
-    if(index < tasks,length -1){
-      const updatedTasks =[...tasks];
-      [updatedTasks[index],updatedTasks[index + 1]]=
-      [updatedTasks[index + 1],updatedTasks[index]];
-      setTasks(updatedTasks);
-    }
+
+  function completeTask(index) {
+    const taskToComplete = tasks[index];
+    setTasks(tasks.filter((_, i) => i !== index));
+    setCompletedTasks([...completedTasks, taskToComplete]);
+  }
+  
+  function toggleShowCompleted() {
+    setShowCompleted(!showCompleted);
   }
 
   return(
@@ -61,15 +56,29 @@ function toDoList(){
               <button className="delete-button" onClick={()=> deleteTask(index)}>
                 Delete
               </button>
-              <button className="move-button" onClick={()=> moveTaskUp(index)}>
-                up
-              </button>
-              <button className="move-button-down" onClick={()=> moveTaskDown(index)}>
-                down
+              <button className="omplete-buttonc" onClick={() => completeTask(index)}>
+              Complete
               </button>
             </li>
           )}
         </ol>
+        <button className="show-completed-button" onClick={toggleShowCompleted}>
+        {showCompleted ? 'Hide Completed Tasks' : 'Show Completed Tasks'}
+      </button>
+
+      {showCompleted && (
+        <div>
+          <h2>Completed Tasks</h2>
+          <ul>
+            {completedTasks.map((task, index) => (
+              <li key={index}>
+                <span className="text">{task}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
   </div>);
 }
 

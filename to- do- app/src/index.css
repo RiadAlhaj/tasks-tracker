@@ -31,16 +31,13 @@ button{
 .delete-button:hover{
   background-color: rgb(124, 124, 190);
 }
-.move-button{
+.omplete-buttonc{
+  background-color: rgb(255, 0, 234);
+}
+.show-completed-button{
   background-color: rgb(174, 0, 255);
 }
-.move-button:hover{
-  background-color: rgb(124, 124, 190);
-}
-.move-button-down{
-  background-color: rgb(174, 0, 255);
-}
-.move-button-down:hover{
+.show-completed-button:hover{
   background-color: rgb(124, 124, 190);
 }
 input[type="text"]{
@@ -67,7 +64,7 @@ li{
 text{
   flex: 1;
 }
-.delete-button , .move-button{
+.delete-button ,  .omplete-buttonc {
   padding: 8px 12px;
   font-size: 1.4rem;
   margin-left: 10px;
