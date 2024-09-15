@@ -10,8 +10,8 @@ function toDoList(){
 
   function handleInputChange(event){
     setNewTask(event.target.value);
-    
   }
+  
   function addTask(){
     if(newTask.trim() !== ""){
       setTasks(t=> [...t,newTask]);
@@ -31,6 +31,8 @@ function toDoList(){
     setCompletedTasks([...completedTasks, taskToComplete]);
   }
   
+
+
   function toggleShowCompleted() {
     setShowCompleted(!showCompleted);
   }
